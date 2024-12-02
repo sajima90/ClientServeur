@@ -6,23 +6,25 @@ import java.net.Socket;
 
 public class Client {
 
-	// Code couleurs tiré d'internet :
-	public static final String RESET = "\033[0m";  // Réinitialise la couleur
-	public static final String BLACK = "\033[30m";  // Noir
-	public static final String RED = "\033[31m";    // Rouge
-	public static final String GREEN = "\033[32m";  // Vert
-	public static final String YELLOW = "\033[33m"; // Jaune
-	public static final String BLUE = "\033[34m";   // Bleu
-	public static final String MAGENTA = "\033[35m"; // Magenta
-	public static final String CYAN = "\033[36m";    // Cyan
-	public static final String WHITE = "\033[37m";   // Blanc
-	public static final String GREY = "\033[90m";    // Gris (clair)
-	public static final String ITALIC = "\033[3m";   // Italique
-	public static final String BOLD = "\033[1m";     // Gras
+	// Détection de l'OS
+    private static final boolean IS_WINDOWS = System.getProperty("os.name").toLowerCase().contains("win");
 
+    // Code couleurs pour les terminaux
+    public static final String RESET = IS_WINDOWS ? "" : "\033[0m";  // Réinitialise la couleur
+    public static final String BLACK = IS_WINDOWS ? "" : "\033[30m"; // Noir
+    public static final String RED = IS_WINDOWS ? "" : "\033[31m";   // Rouge
+    public static final String GREEN = IS_WINDOWS ? "" : "\033[32m"; // Vert
+    public static final String YELLOW = IS_WINDOWS ? "" : "\033[33m"; // Jaune
+    public static final String BLUE = IS_WINDOWS ? "" : "\033[34m";  // Bleu
+    public static final String MAGENTA = IS_WINDOWS ? "" : "\033[35m"; // Magenta
+    public static final String CYAN = IS_WINDOWS ? "" : "\033[36m";   // Cyan
+    public static final String WHITE = IS_WINDOWS ? "" : "\033[37m";  // Blanc
+    public static final String GREY = IS_WINDOWS ? "" : "\033[90m";   // Gris (clair)
+    public static final String ITALIC = IS_WINDOWS ? "" : "\033[3m";  // Italique
+    public static final String BOLD = IS_WINDOWS ? "" : "\033[1m";    // Gras
 
-	private static final String SERVEUR = "localhost";
-	private static final int PORT = 3000;
+    private static final String SERVEUR = "localhost";
+    private static final int PORT = 3000;
 
 	public static void main(String[] args) {
 		String server = SERVEUR;
